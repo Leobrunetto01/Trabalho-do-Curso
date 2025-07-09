@@ -15,8 +15,13 @@
         <h1>VIVARIN TELEPORTATION</h1>
         <p>Transportando o futuro até você</p>
       </div>
+      <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu de navegação">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-    <nav aria-label="Navegação principal">
+    <nav aria-label="Navegação principal" id="nav-menu">
       <button onclick="showScreen('história')" id="btn-história">História</button>
       <button onclick="showScreen('resumo')" id="btn-resumo">Resumo</button>
       <button onclick="showScreen('negocio')" id="btn-negocio">Negócio</button>
@@ -97,6 +102,23 @@ A reunião foi encerrada com aprovação unânime dos pontos abordados. A ata fo
   </footer>
 
   <script>
+    let mobileMenuOpen = false;
+
+    function toggleMobileMenu() {
+      const nav = document.getElementById('nav-menu');
+      const hamburger = document.querySelector('.hamburger');
+      
+      mobileMenuOpen = !mobileMenuOpen;
+      
+      if (mobileMenuOpen) {
+        nav.classList.add('mobile-open');
+        hamburger.classList.add('active');
+      } else {
+        nav.classList.remove('mobile-open');
+        hamburger.classList.remove('active');
+      }
+    }
+
     function showScreen(screenId) {
       const telas = document.querySelectorAll('.tela');
       telas.forEach(tela => {
@@ -112,6 +134,11 @@ A reunião foi encerrada com aprovação unânime dos pontos abordados. A ata fo
       document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
       const btnAtivo = document.querySelector(`nav button[onclick*="${screenId}"]`);
       if (btnAtivo) btnAtivo.classList.add('active');
+
+      // Close mobile menu when a screen is selected
+      if (window.innerWidth <= 768 && mobileMenuOpen) {
+        toggleMobileMenu();
+      }
     }
 
     showScreen('resumo');
