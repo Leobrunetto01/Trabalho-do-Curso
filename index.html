@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VIVARIN TELEPORTATION</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <img src="logo.png" alt="Logo VIVARIN TELEPORTATION" class="logo" loading="lazy"/>
+      <div>
+        <h1>VIVARIN TELEPORTATION</h1>
+        <p>Transportando o futuro até você</p>
+      </div>
+    </div>
+    <nav aria-label="Navegação principal">
+      <button onclick="showScreen('história')" id="btn-história">História</button>
+      <button onclick="showScreen('resumo')" id="btn-resumo">Resumo</button>
+      <button onclick="showScreen('negocio')" id="btn-negocio">Negócio</button>
+      <button onclick="showScreen('logistica')" id="btn-logistica">Logística</button>
+      <button onclick="showScreen('custos')" id="btn-custos">Custos</button>
+      <button onclick="showScreen('clientes')" id="btn-clientes">Clientes</button>
+      <button onclick="showScreen('convivencia')" id="btn-convivencia">Convivência</button>
+      <button onclick="showScreen('vendas')" id="btn-vendas">Vendas</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="história" class="tela">
+      <h2>História</h2>
+      <p><strong>História:</strong> No dia 17 de março de 2025, às 14h, foi realizada uma reunião na sede da empresa Infobrasil Informática LTDA com o objetivo de tratar da constituição e abertura da empresa. Estiveram presentes os membros fundadores Manoella Ferretto de Carvalho, Hillary Lopes Vilarino, Ana Clara Cordeiro Scheidt e Maicon Cezar Civa Junior.
+
+Durante a reunião, foi comunicado o desligamento de Manoella da sociedade, sendo substituída por Melanie Casarín Boschetti. A equipe deliberou sobre diversos pontos importantes, como:
+	•	Tipo jurídico e nome empresarial da empresa.
+	•	Cadastro do CNPJ: 28.184.258/0001-90.
+	•	Código de atividade da empresa (CNAE): 27.902/00 (fabricação de aparelhos e equipamentos elétricos).
+	•	Estrutura societária, inscrição municipal, número de funcionários.
+	•	Funções, salários e responsabilidades dos membros.
+	•	Definição de fornecedores e práticas sustentáveis.
+
+A reunião foi encerrada com aprovação unânime dos pontos abordados. A ata foi registrada e assinada pelos presentes.</p>
+    </section>
+    <section id="resumo" class="tela">
+      <h2>Resumo Executivo</h2>
+      <p><strong>Objetivo:</strong> Soluções inovadoras de transporte instantâneo.</p>
+      <p><strong>Meta:</strong> Tornar o teletransporte acessível, seguro e sustentável.</p>
+    </section>
+
+    <section id="negocio" class="tela">
+      <h2>Apresentação do Negócio</h2>
+      <p><strong>Fundadores:</strong> Melanie, Hillary, Maicon</p>
+      <p><strong>Missão:</strong> Transporte seguro, eficiente e sustentável.</p>
+      <p><strong>Visão:</strong> Liderança global até 2030.</p>
+      <p><strong>Valores:</strong> Inovação, ética, excelência e pessoas.</p>
+    </section>
+
+    <section id="logistica" class="tela">
+      <h2>Logística e Produção</h2>
+      <p>Centros de distribuição e 1.500 unidades/mês a R$500.000 cada.</p>
+      <p>Faturamento estimado: R$300 milhões.</p>
+    </section>
+
+    <section id="custos" class="tela">
+      <h2>Custos e Investidores</h2>
+      <p><strong>Fixos:</strong> Salários, energia, água.</p>
+      <p><strong>Variáveis:</strong> Matéria-prima, EPI, escritório.</p>
+      <p><strong>Investimento:</strong> 3 investidores, R$600 mil total.</p>
+    </section>
+
+    <section id="clientes" class="tela">
+      <h2>Clientes e Fornecedores</h2>
+      <p><strong>Clientes:</strong> Logística, governos, grandes empresas.</p>
+      <p><strong>Fornecedores:</strong> Tecnologia quântica, componentes, segurança.</p>
+    </section>
+
+    <section id="convivencia" class="tela">
+      <h2>Regras de Convivência</h2>
+      <ul>
+        <li>Respeito, pontualidade, sigilo</li>
+        <li>Uso de EPI</li>
+        <li>Inclusão, diversidade, ética</li>
+      </ul>
+    </section>
+
+    <section id="vendas" class="tela">
+      <h2>Vendas e Divulgação</h2>
+      <p><strong>Divulgação:</strong> Mídia, placas, marketing digital</p>
+      <p><strong>Locais:</strong> Lojas, internet, representantes</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 VIVARIN TELEPORTATION - Transportando o futuro até você.</p>
+  </footer>
+
+  <script>
+    function showScreen(screenId) {
+      const telas = document.querySelectorAll('.tela');
+      telas.forEach(tela => {
+        tela.classList.remove('active');
+        tela.style.display = 'none';
+      });
+      const telaAtiva = document.getElementById(screenId);
+      telaAtiva.style.display = 'block';
+
+      void telaAtiva.offsetWidth;
+      telaAtiva.classList.add('active');
+
+      document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+      const btnAtivo = document.querySelector(`nav button[onclick*="${screenId}"]`);
+      if (btnAtivo) btnAtivo.classList.add('active');
+    }
+
+    showScreen('resumo');
+  </script>
+
+</body>
+</html>
